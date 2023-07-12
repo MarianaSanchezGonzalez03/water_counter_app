@@ -13,6 +13,9 @@ class _IntervalProgressBarState extends State<IntervalProgressBar> {
     return Row(
       children: [
         _bar(),
+        const SizedBox(
+          width: 8,
+        ),
         _label(),
       ],
     );
@@ -21,26 +24,25 @@ class _IntervalProgressBarState extends State<IntervalProgressBar> {
     return Column(
       children: [
         
-        _interval(customColor: Color.fromARGB(255, 17, 84, 243)),
+        _interval(customColor: const Color.fromARGB(255, 66, 144, 255)),
         _separetor(),
-        _interval(customColor: Color.fromARGB(255, 6, 170, 199)),
+        _interval(customColor: const Color.fromARGB(255, 94, 173, 167)),
         _separetor(),
-        _interval(customColor: Color.fromARGB(255, 4, 165, 114)),
+        _interval(customColor: const Color.fromARGB(255, 118, 188, 116)),
         _separetor(),
-        _interval(customColor: Color.fromARGB(255, 2, 175, 60)),
+        _interval(customColor: const Color.fromARGB(255, 145, 186, 62)),
         _separetor(),
-        _interval(customColor: Color.fromARGB(255, 52, 234, 6)),
+        _interval(customColor: const Color.fromARGB(255, 169, 163, 60)),
         _separetor(),
-        _interval(customColor: Color.fromARGB(255, 200, 238, 10)),
+        _interval(customColor: const Color.fromARGB(255, 192, 181, 60)),
         _separetor(),
-        _interval(customColor: Color.fromARGB(255, 206, 199, 7)),
+        _interval(customColor: const Color.fromARGB(255, 230, 190, 64)),
         _separetor(),
-        _interval(customColor: Color.fromARGB(255, 245, 182, 11)),
+        _interval(customColor: const Color.fromARGB(255, 237, 169, 59)),
         _separetor(),
-        _interval(customColor: Color.fromARGB(255, 246, 102, 13)),
+        _interval(customColor: const Color.fromARGB(255, 235, 138, 60)),
         _separetor(),
-        _interval(customColor: const Color.fromARGB(255, 255, 0, 0)),
-        
+        _interval(customColor: const Color.fromARGB(255, 229, 95, 72)),
        
 
       ],
@@ -48,13 +50,13 @@ class _IntervalProgressBarState extends State<IntervalProgressBar> {
   }
   Widget _separetor(){
     return const SizedBox(
-      height: 3,
+      height: 2.2,
     );
   }
   Widget _interval({required Color customColor}){
     return  SizedBox(
-      width: 22.0,
-      height: 5.0,
+      width: 15.0,
+      height: 3.8,
       child: DecoratedBox(
         decoration:BoxDecoration(
           color: customColor,
@@ -63,9 +65,16 @@ class _IntervalProgressBarState extends State<IntervalProgressBar> {
     );
   }
   Widget _label(){
-    return Text(
-      '1.0',
-      style: Theme.of(context).textTheme.headlineSmall,
+    return Column(
+      children: [
+        const SizedBox(
+          height: 30,
+        ),
+        Text(
+          '1.0',
+          style: Theme.of(context).textTheme.headlineSmall,
+        ),
+      ],
     );
   }
 }
