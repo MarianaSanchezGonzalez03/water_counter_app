@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:water_counter_app/assets/interval_progress_bar.dart';
+import 'package:water_counter_app/screens/drinks_screen.dart';
 
 
 class StartScreen extends StatefulWidget{
@@ -169,7 +170,12 @@ class _StartScreenState extends State<StartScreen>{
                 height: 30,
               ),
               child: ElevatedButton(
-                onPressed:() { },
+                onPressed:() {
+                  Navigator.push(
+                    context, 
+                    MaterialPageRoute(builder: (context) => const DrinksScreen()),
+                  );
+                 },
                 child: const Text('Registrar'),
                  ),
             ),
