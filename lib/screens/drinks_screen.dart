@@ -22,9 +22,14 @@ class DrinksScreen extends StatelessWidget{
       appBar: AppBar(
         toolbarHeight: 16.0,
         leadingWidth: 100,
-        leading: Text(
-           'Cancelar',
-           style: Theme.of(context).textTheme.bodySmall,
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+           },
+          child: Text(
+            'Cancel',
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
            ),
            actions: [
             _hour(context),
