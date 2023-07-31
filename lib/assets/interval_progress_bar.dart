@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class IntervalProgressBar extends StatefulWidget {
-  final int value; //Define el valor del agua
+  final double value; //Define el valor del agua
 
   const IntervalProgressBar({Key? key, required this.value}) : super(key: key);
 
@@ -10,6 +10,7 @@ class IntervalProgressBar extends StatefulWidget {
 }
 
 class _IntervalProgressBarState extends State<IntervalProgressBar> {
+  double get value=>widget.value;
    List<Color> darkColors=[
         const Color.fromARGB(255, 22, 45, 67),
         const Color.fromARGB(255, 28, 55, 53),
@@ -49,10 +50,19 @@ class _IntervalProgressBarState extends State<IntervalProgressBar> {
     );
   }
   Widget _bar(){
-    List <Color> actualColors;
+    List <Color> actualColors=[];
     if(widget.value == 0){
       actualColors=darkColors;
     }else{
+      for (int i = 0; i < brightColors.length; i++) {
+        if(10/value <= i.toDouble()){
+          actualColors.add(brightColors[i]);
+        }else{
+          actualColors.add(darkColors[i]);
+        }
+      }
+    }
+    if(value >= 5){
       actualColors=brightColors;
     }
     return Column(
@@ -100,12 +110,14 @@ class _IntervalProgressBarState extends State<IntervalProgressBar> {
   }
   Widget _label(){
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         const SizedBox(
           height: 30,
         ),
         Text(
-          '1.0',
+          '${value >= 5 ? 5 : value.toStringAsFixed(1)}',
           style: Theme.of(context).textTheme.headlineSmall,
         ),
       ],
